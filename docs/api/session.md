@@ -580,8 +580,11 @@ Clears the session’s HTTP cache.
     specified, clear all storage types. 
     //Smoke Test
     const invalidStorages: ('cookies' | 'filesystem' | 'invalidValue')[] = ['cookies', 'filesystem', 'invalidValue']; //  @ts-expect-error: Type '"invalidValue"' is not assignable to type     '"cookies" | "filesystem" | "indexdb" | "localstorage" | "shadercache" | "websql" | "serviceworkers" | "cachestorage"'.
-  * `quotas` string[] (optional) - The types of quotas to clear, can contain:
-    `temporary`, `syncable`. If not specified, clear all quotas.
+  * `quotas` string[] (optional) - The types of quotas to clear, can contain: 
+  `'temporary'` and `'syncable'`. If not specified, clear all quotas. 
+  //Smoke Test
+  const invalidQuotas: ('temporary' | 'invalidValue')[] = ['temporary', 'invalidValue']; // @ts-expect-error: Type '"invalidValue"' is not assignable to type '"temporary" | "syncable"'.
+
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
 
