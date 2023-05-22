@@ -88,8 +88,12 @@ The `desktopCapturer` module has the following methods:
 ### `desktopCapturer.getSources(options)`
 
 * `options` Object
-  * `types` string[] - An array of strings that lists the types of desktop sources
-    to be captured, available types are `screen` and `window`.
+  * `types` string[] - An array of strings listing the types of desktop sources 
+  to be captured. Available types are `'screen'` and `'window'`. 
+  //Smoke Test
+  const invalidTypes: ('screen' | 'invalidValue')[] = ['screen', 'invalidValue']; // @ts-expect-error: Type '"invalidValue"' is not assignable to type '"screen" | "window"'.
+
+  
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail
     should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need
     the thumbnails. This will save the processing time required for capturing the content of each
