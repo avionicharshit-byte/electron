@@ -574,10 +574,12 @@ Clears the session’s HTTP cache.
 * `options` Object (optional)
   * `origin` string (optional) - Should follow `window.location.origin`’s representation
     `scheme://host:port`.
-  * `storages` string[] (optional) - The types of storages to clear, can contain:
-    `cookies`, `filesystem`, `indexdb`, `localstorage`,
-    `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not
-    specified, clear all storage types.
+  * `storages` string[] (optional) - The types of storages to clear, can contain: 
+  `'cookies'`, `'filesystem'`, `'indexdb'`, `'localstorage'`, 
+  `'shadercache'`, `'websql'`, `'serviceworkers'`, and `'cachestorage'`. If not 
+    specified, clear all storage types. 
+    //Smoke Test
+    const invalidStorages: ('cookies' | 'filesystem' | 'invalidValue')[] = ['cookies', 'filesystem', 'invalidValue']; //  @ts-expect-error: Type '"invalidValue"' is not assignable to type     '"cookies" | "filesystem" | "indexdb" | "localstorage" | "shadercache" | "websql" | "serviceworkers" | "cachestorage"'.
   * `quotas` string[] (optional) - The types of quotas to clear, can contain:
     `temporary`, `syncable`. If not specified, clear all quotas.
 
